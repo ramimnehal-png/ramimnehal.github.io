@@ -146,21 +146,36 @@ button {
     width: min(1300px, calc(100vw - 2rem));
     height: var(--nav-height);
     margin: 1.2rem auto 0;
-    padding: 0 1.5rem;
-    border-radius: 12px;
+    padding: 0 2rem;
+    border-radius: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: sticky;
     top: 1.2rem;
     z-index: 20;
-    background: linear-gradient(135deg, rgba(10, 14, 39, 0.6), rgba(15, 20, 45, 0.4));
-    border: 1px solid rgba(0, 217, 255, 0.15);
+    background: linear-gradient(135deg, rgba(10, 14, 39, 0.25), rgba(15, 20, 45, 0.15));
+    border: 1.5px solid rgba(0, 217, 255, 0.25);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+    transition: all 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.navbar:hover {
+    background: linear-gradient(135deg, rgba(10, 14, 39, 0.35), rgba(15, 20, 45, 0.25));
+    border-color: rgba(0, 217, 255, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 217, 255, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 body[data-theme="light"] .navbar {
-    background: linear-gradient(135deg, rgba(240, 248, 255, 0.3), rgba(230, 245, 255, 0.2));
-    border: 1px solid rgba(0, 136, 204, 0.2);
+    background: linear-gradient(135deg, rgba(240, 248, 255, 0.15), rgba(230, 245, 255, 0.1));
+    border: 1.5px solid rgba(0, 136, 204, 0.3);
+}
+
+body[data-theme="light"] .navbar:hover {
+    background: linear-gradient(135deg, rgba(240, 248, 255, 0.25), rgba(230, 245, 255, 0.18));
+    border-color: rgba(0, 136, 204, 0.5);
 }
 
 .brand {
@@ -208,23 +223,38 @@ body[data-theme="light"] .navbar {
     font-weight: 500;
     transition: color var(--transition), text-shadow var(--transition);
     position: relative;
+    padding: 0.5rem 0.8rem;
+    border-radius: 20px;
 }
 
 .nav-links a::after {
     content: "";
     position: absolute;
     bottom: -4px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
     height: 2px;
     background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
     transition: width var(--transition);
 }
 
+.nav-links a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(138, 43, 226, 0.08));
+    opacity: 0;
+    transition: opacity var(--transition);
+    z-index: -1;
+}
+
 .nav-links a:hover,
 .nav-links a:focus-visible {
     color: var(--accent-bright);
     text-shadow: var(--glow);
+    transform: scale(1.05);
 }
 
 .nav-links a:hover::after,
@@ -232,12 +262,17 @@ body[data-theme="light"] .navbar {
     width: 100%;
 }
 
+.nav-links a:hover::before,
+.nav-links a:focus-visible::before {
+    opacity: 1;
+}
+
 .theme-toggle {
-    border: 1px solid var(--border);
-    background: rgba(0, 217, 255, 0.05);
+    border: 1.5px solid var(--border);
+    background: rgba(0, 217, 255, 0.08);
     color: var(--text);
-    border-radius: 8px;
-    padding: 0.5rem 0.9rem 0.5rem 0.6rem;
+    border-radius: 25px;
+    padding: 0.6rem 1.2rem 0.6rem 0.8rem;
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
@@ -247,10 +282,10 @@ body[data-theme="light"] .navbar {
 
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
-    transform: translateY(-2px);
-    border-color: var(--border-strong);
-    background: rgba(0, 217, 255, 0.1);
-    box-shadow: var(--glow);
+    transform: scale(1.08);
+    border-color: var(--accent-bright);
+    background: rgba(0, 217, 255, 0.15);
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 .toggle-track {
@@ -737,8 +772,8 @@ body[data-theme="light"] .hero-title {
 @media (max-width: 860px) {
     .navbar {
         height: auto;
-        padding: 1rem 1.2rem;
-        border-radius: 12px;
+        padding: 1rem 1.5rem;
+        border-radius: 40px;
         align-items: center;
     }
 
@@ -800,16 +835,24 @@ body[data-theme="light"] .hero-title {
         height: 12px;
     }
 
+    .navbar {
+        border-radius: 35px;
+        padding: 0.9rem 1.2rem;
+    }
+
     .nav-links {
         gap: 0.6rem;
     }
 
     .nav-links a {
         font-size: 0.75rem;
+        padding: 0.4rem 0.6rem;
     }
 
     .theme-toggle {
-        padding-right: 0.7rem;
+        border-radius: 22px;
+        padding: 0.5rem 1rem 0.5rem 0.6rem;
+        font-size: 0.75rem;
     }
 
     .hero-panel,
