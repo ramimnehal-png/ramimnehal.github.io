@@ -1,1 +1,62 @@
-ddv
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ever | AI Sales Consultant</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+
+    <nav class="navbar">
+        <div class="logo">EVER<span>.</span></div>
+        <div class="nav-links">
+            <a href="#mission">Mission</a>
+            <a href="#moat">Technology</a>
+            <a href="#roadmap">Roadmap</a>
+            <button id="theme-toggle">🌓</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="glow-text">The Sales Consultant <br>Agent for High-Ticket Retail.</h1>
+            <p>Moving beyond support. Closing the gap between inquiry and transaction with RAG-powered intelligence.</p>
+            <div class="cta-group">
+                <button class="btn-primary">Get API Access</button>
+                <button class="btn-secondary">View Roadmap</button>
+            </div>
+        </div>
+    </header>
+
+    <section id="moat" class="features">
+        <h2 class="section-title">The Ever Advantage</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Authenticity Proof</h3>
+                <p>Cross-referencing serial numbers to eliminate the counterfeit market.</p>
+            </div>
+            <div class="card">
+                <h3>Banglish Optimized</h3>
+                <p>Native code-switching for the South Asian market nuances.</p>
+            </div>
+            <div class="card">
+                <h3>RAG Truth Layer</h3>
+                <p>Zero hallucinations. Connected directly to your inventory and specs.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Ever Intelligence. Built for the Next Era of Commerce.</p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('theme-toggle');
+        btn.addEventListener('click', function() {
+            document.body.classList.toggle('light-theme');
+        });
+    </script>
+</body>
+</html>
